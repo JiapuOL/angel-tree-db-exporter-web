@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>永恒族谱数据导出器</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="card">
+      <h1>永恒族谱数据导出器</h1>
+      <p class="subtitle">解密并导出 永恒族谱 <code>.Lgd</code> 数据库。</p>
+
+      <!-- Step 1: version -->
+      <section class="step">
+        <label class="field-label" for="version">1. 数据库版本</label>
+        <select id="version">
+          <option value="v5">v5.x（Delphi 引擎 — 无需登录）</option>
+          <option value="v3">v3.x（VB6 引擎 — 需要管理员登录）</option>
+        </select>
+      </section>
+
+      <!-- v3-only credentials (disabled for v5.x) -->
+      <section class="step" id="credentials">
+        <label class="field-label" for="adminName">管理员用户名</label>
+        <input id="adminName" type="text" autocomplete="off" placeholder="请输入管理员用户名" />
+        <label class="field-label" for="password">管理员密码</label>
+        <input id="password" type="password" autocomplete="off" placeholder="请输入管理员密码" />
+        <p class="hint" id="credHint">密码（通行证密码）将用作解密密钥。</p>
+      </section>
+
+      <!-- Step 2: file -->
+      <section class="step">
+        <label class="field-label">2. 选择 <code>.Lgd</code> 文件</label>
+        <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="拖入或选择一个 .Lgd 文件">
+          <input id="fileInput" type="file" accept=".Lgd,.lgd" hidden />
+          <span id="dropText">将 <code>.Lgd</code> 文件拖到此处，或点击选择文件</span>
+        </div>
+      </section>
+
+      <!-- Step 3: actions -->
+      <section class="step actions">
+        <button id="uploadBtn" disabled>上传</button>
+        <button id="decryptBtn" disabled>解密</button>
+      </section>
+
+      <!-- status + result -->
+      <section id="statusBox" class="status" hidden></section>
+      <section id="resultBox" class="result" hidden>
+        <div class="result-actions">
+          <a id="downloadTxt" class="link-btn" download target="_blank" rel="noopener">下载 .txt</a>
+          <a id="downloadJson" class="link-btn" download target="_blank" rel="noopener">下载 .json</a>
+        </div>
+        <pre id="preview" class="preview"></pre>
+      </section>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
