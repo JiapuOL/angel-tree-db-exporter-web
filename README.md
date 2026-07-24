@@ -4,7 +4,7 @@
 
 A static frontend for decrypting Angel Tree (永恒族谱) `Original.Lgd` databases. The
 heavy lifting (reading the password-protected MS Access file and decrypting each column)
-runs in the companion Worker, [angel-tree-db-exporter-server](../angel-tree-db-exporter-server).
+runs in the companion backend Worker.
 
 ## Flow
 
