@@ -127,6 +127,22 @@ button:disabled { opacity: 0.45; cursor: not-allowed; }
   font-size: 0.88rem;
 }
 .link-btn:hover { background: rgba(79, 156, 249, 0.1); }
+.footer {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+.footer a:hover { color: var(--accent); }
+
 .preview {
   max-height: 340px;
   overflow: auto;
