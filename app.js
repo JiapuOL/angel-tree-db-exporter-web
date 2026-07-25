@@ -29,6 +29,7 @@
   const statusBox = $("statusBox");
   const resultBox = $("resultBox");
   const preview = $("preview");
+  const downloadHtml = $("downloadHtml");
   const downloadTxt = $("downloadTxt");
   const downloadJson = $("downloadJson");
 
@@ -175,11 +176,13 @@
   }
 
   async function loadResult() {
-    const txtUrl = API + "/api/result?uuid=" + encodeURIComponent(uuid) + "&format=txt";
-    const jsonUrl = API + "/api/result?uuid=" + encodeURIComponent(uuid) + "&format=json";
+    const base = API + "/api/result?uuid=" + encodeURIComponent(uuid) + "&format=";
+    const txtUrl = base + "txt";
+    downloadHtml.href = base + "html";
+    downloadHtml.download = uuid + ".html";
     downloadTxt.href = txtUrl;
     downloadTxt.download = uuid + ".txt";
-    downloadJson.href = jsonUrl;
+    downloadJson.href = base + "json";
     downloadJson.download = uuid + ".json";
     resultBox.hidden = false;
     try {

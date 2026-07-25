@@ -15,7 +15,11 @@ runs in the companion backend Worker.
 3. **Upload** — the server stores it under a random UUID and returns that UUID.
 4. **Decrypt** — the server starts decoding in the background.
 5. The page **polls status every 10 seconds** and, when done, shows a preview plus
-   download links for the `.txt` and `.json` output.
+   download links for three formats:
+   - **`.html`** — an interactive 族谱树: collapsible, searchable, filterable by generation.
+     A single self-contained file that works offline.
+   - **`.txt`** — the same tree as indented plain text with Chinese labels.
+   - **`.json`** — structured records for further processing.
 
 ## Configure
 
